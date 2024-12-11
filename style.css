@@ -8,7 +8,7 @@
 }
 
 @font-face {
-  font-family: "Ogg Regula";
+  font-family: "Ogg Regular";
   src: url(./fonts/Ogg-Regular.ttf) format("truetype");
 }
 
@@ -23,7 +23,7 @@
 }
 
 @font-face {
-  font-family: "Roboto Regula";
+  font-family: "Roboto Regular";
   src: url(./fonts/Roboto-Regular.ttf) format("truetype");
 }
 
@@ -151,4 +151,81 @@ main {
   font-size: clamp(2rem, 2cqi, 5rem);
   text-align: center;
   font-family: "Roboto Thin";
+}
+
+#about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  max-width: var(--max-width);
+}
+
+.about__text {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  text-transform: uppercase;
+  text-wrap: balance;
+  font-size: 2.6rem;
+  transition: 1s;
+}
+
+#video {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 200%;
+}
+
+.shim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.video__sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 50%;
+}
+
+.main__video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  transform: scale(0.5);
+  will-change: transform;
+}
+
+.video__text__overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: center;
+  font-size: clamp(4rem, 7cqi, 6rem);
+  width: 100%;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+  .about__text {
+    width: 90%;
+  }
 }
