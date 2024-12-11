@@ -22,8 +22,8 @@ function animateText() {
   const halfwayThreshold = viewportHeight / 2;
   let opacity = 0;
 
-  if (top < halfwayThreshold && bottom > halfwayThreshold) {
-    let distance = halfwayThreshold - top;
+  if (Math.abs(top) < halfwayThreshold && Math.abs(bottom) > halfwayThreshold) {
+    let distance = halfwayThreshold - Math.abs(top);
     opacity = Math.min(Math.max(distance / halfwayThreshold, 0), 1);
   }
   aboutSection.style.opacity = opacity;

@@ -170,12 +170,21 @@ main {
 
 .about__text {
   width: 50%;
+  height: 100%;
   margin: auto;
-  text-align: center;
+  text-align: left;
   text-transform: uppercase;
   text-wrap: balance;
   font-size: 2.6rem;
   transition: 1s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.about__text img {
+  width: clamp(15rem, 15cqi, 30rem);
 }
 
 #video {
