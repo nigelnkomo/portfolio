@@ -74,4 +74,11 @@
         .about-image-container {
             margin-bottom: 2rem;
         }
+
+        .h2-heading {
+            font-size: 5rem;
+            font-family: var(--h2-font-family);
+            line-height: var(--h2-line-height);
+            width: fit-content;
+        }
     }
