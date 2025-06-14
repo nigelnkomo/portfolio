@@ -307,7 +307,8 @@ body {
     }
     
     #viewer {
-        padding: 0 0 0 1.5rem;  
+        padding: 0 0 0 1.5rem;
+        height: 45rem;  
     }
 
 }
