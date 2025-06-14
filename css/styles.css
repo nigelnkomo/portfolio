@@ -224,6 +224,90 @@ body {
     width: 100%;
     height: 100%;
     border: none;
-    padding: 0 7rem;
+    padding: 0 7rem;  
+}
+
+@media (max-width: 992px) {
+    :root {
+        --default-font-size: 14px;
+    }
+
+    .project-container {
+        height: 30rem;
+    }
+
+    .project-notification, 
+    .project-information {
+        width: 100%;
+    }
+
+    .project-notification {
+        top: auto;
+        right: 0;
+    }
     
+    .project-information {
+        bottom: auto;
+        left: 0;
+        width: 100%;
+    }
+
+    #viewer {
+        padding: 0 1.5rem;  
+    }
+
+}
+
+
+@media  (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: 100vh;
+        padding-top: var(--default-spacing);
+    }
+
+    .logo {
+        margin-bottom: var(--default-spacing);
+    }
+
+    .landscape-third {
+        padding: 0 1.5rem;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .landscape-two-thirds {
+        width: 100%;
+    }
+
+    .header {
+        position: static;
+        text-align: left;
+        margin-bottom: var(--default-spacing);
+    }
+
+    .header ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navigation ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end
+    }
+
+    .navigation {
+        margin-top: 0;
+    }
+
+    .header ul li {
+        margin: var(--small-spacing) 0;
+    }
+    
+    #viewer {
+        padding: 0 0 0 1.5rem;  
+    }
+
 }

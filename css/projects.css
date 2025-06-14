@@ -4,7 +4,7 @@ body {
 
 .project-container {
     width: 100%;
-    height: 34rem;
+    /* height: 34rem; */
     position: relative;
     background-color: var(--secondary-text-color);
     margin-bottom: 8rem;
@@ -30,9 +30,16 @@ body {
 .project-notification {
     top: 0;
     right: 0;
+    width: fit-content;
 }
 .project-information {
     bottom: 0;
     left: 0;
     width: 20rem;
 }
+
+/* @media (max-width: 768px) {
+
+
+    
+} */
