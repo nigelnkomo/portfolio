@@ -68,7 +68,8 @@
         
         .paragraph-large {
             font-size: var(--paragraph-medium-font-size);
-            line-height: var(--paragraph-large-line-height);
+            line-height: 1.5;
+            color: var(--primary-text-color);
         }
 
         .about-image-container {
