@@ -1,0 +1,43 @@
+# ==================================
+# Node.js / npm
+# ==================================
+# Dependency directory
+/node_modules/
+# Log file
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==================================
+# Sass & Compiled Assets
+/css/
+
+# ==================================
+# Jekyll & GitHub Pages
+# ==================================
+# The Jekyll build output folder
+/_site/
+# Jekyll's temporary metadata file
+.jekyll-metadata
+# Ruby dependencies (from your GitHub Actions log)
+Gemfile.lock
+
+# ==================================
+# Editor and OS Files
+# ==================================
+# VS Code files
+.vscode/
+# Sublime Text
+.sublime-project
+.sublime-workspace
+# IntelliJ IDEA
+.idea/
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# ==================================
+# My Project Specifics
+# ==================================
+.prettierrc
