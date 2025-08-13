@@ -556,6 +556,11 @@ p {
   position: relative;
   width: 100%;
   aspect-ratio: 16/9;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 .project-image-container:hover .project-overlay {
   opacity: 1;
