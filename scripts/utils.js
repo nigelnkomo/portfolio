@@ -1,21 +1,18 @@
 // Blog posts
 
 const projects = [
-    {
-        title: "Project One",
-        info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur porro deleniti, dolores quas error veniam. Ratione enim, natus doloribus totam, quo laborum dolores ex ipsum suscipit libero, aut nulla possimus?",
-        image: "../assets/imgs/1.jpg",
-    },
-    {
-        title: "Project Two",
-        info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur porro deleniti, dolores quas error veniam. Ratione enim, natus doloribus totam, quo laborum dolores ex ipsum suscipit libero, aut nulla possimus?",
-        image: "../assets/imgs/2.jpg",
-    },
-    {
-        title: "Project Three",
-        info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur porro deleniti, dolores quas error veniam. Ratione enim, natus doloribus totam, quo laborum dolores ex ipsum suscipit libero, aut nulla possimus?",
-        image: "../assets/imgs/3.jpg",
-    },
+  {
+    title: "Project One",
+    image: "../assets/imgs/1.jpg",
+  },
+  {
+    title: "Project Two",
+    image: "../assets/imgs/2.jpg",
+  },
+  {
+    title: "Project Three",
+    image: "../assets/imgs/3.jpg",
+  },
 ];
 
 // const createProjectCards = () => {
@@ -52,49 +49,40 @@ const projects = [
 // };
 
 const createProjectCards = () => {
-    projects.forEach((project) => {
-        let projectSection = document.createElement("div");
-        projectSection.classList.add("project-card");
+  projects.forEach((project) => {
+    let projectSection = document.createElement("div");
+    projectSection.classList.add("project-card");
 
-        let projectDiv = document.createElement("div");
-        projectDiv.classList.add("project");
+    let projectDiv = document.createElement("div");
+    projectDiv.classList.add("project");
 
-        // Image container
-        let imageContainer = document.createElement("div");
-        imageContainer.classList.add("project-image-container");
+    // Image container
+    let imageContainer = document.createElement("div");
+    imageContainer.classList.add("project-image-container");
 
-        let image = document.createElement("img");
-        image.classList.add("project-img");
-        image.src = project.image;
+    let image = document.createElement("img");
+    image.classList.add("project-img");
+    image.src = project.image;
 
-        // Overlay
-        let overlay = document.createElement("div");
-        overlay.classList.add("project-overlay");
+    // Overlay
+    let overlay = document.createElement("div");
+    overlay.classList.add("project-overlay");
 
-        let overlayTitle = document.createElement("h3");
-        overlayTitle.innerText = project.title;
+    let overlayTitle = document.createElement("h3");
+    overlayTitle.innerText = project.title;
 
-        let overlayButton = document.createElement("button");
-        overlayButton.innerText = "Open Project";
+    let overlayButton = document.createElement("button");
+    overlayButton.innerText = "Open Project";
 
-        overlay.append(overlayTitle, overlayButton);
+    overlay.append(overlayTitle, overlayButton);
 
-        imageContainer.append(image, overlay);
+    imageContainer.append(image, overlay);
 
-        // Project details
-        let projectDetails = document.createElement("div");
-        projectDetails.classList.add("project-details");
+    projectDiv.append(imageContainer);
+    projectSection.appendChild(projectDiv);
 
-        let projectInfo = document.createElement("p");
-        projectInfo.innerText = project.info;
-
-        projectDetails.appendChild(projectInfo);
-
-        projectDiv.append(imageContainer, projectDetails);
-        projectSection.appendChild(projectDiv);
-
-        document.getElementById("projects").appendChild(projectSection);
-    });
+    document.getElementById("projects").appendChild(projectSection);
+  });
 };
 
 export { createProjectCards };
