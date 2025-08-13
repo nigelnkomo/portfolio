@@ -1,56 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PORTFOLIO</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PORTFOLIO - NIGEL NKOMO</title>
 
-    <!-- STYLES -->
-    <link rel="stylesheet" href="./css/styles.css">
+        <!-- STYLES -->
+        <link rel="stylesheet" href="./styles.css" />
 
-    <!-- OPEN GRAPH MEATADATA -->
-    <meta property="og:title" content="NIGEL NKOMO | PORTFOLIO" />
-    <meta property="og:description" content=" A home for my projects: features graphic designs, web designs and computer engineering projects" />
-    <meta property="og:image" content="https://raw.githubusercontent.com/nigelnkomo/portfolio/main/imgs/cover.jpg" />
-    <meta property="og:url" content="https://github.com/nigelnkomo/portfolio/" />
-    <meta property="og:type" content="website" />
+        <!-- FAVICONS -->
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="./assets/icons/favicon.ico"
+        />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="./assets/icons/favicon.svg"
+        />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="NIGEL NKOMO | PORTFOLIO" />
-    <meta name="twitter:description" content="A home for my projects: features graphic designs, web designs and computer engineering projects" />
-    <meta name="twitter:image" content="https://github.com/nigelnkomo/portfolio/tree/main/imgs/cover.jpg" />
-
-</head>
-<body>
-    <div class="container">
-        <div class="landscape-third">
-            <div class="copyright">
-                <small>Designed and Developed by Nigel Nkomo ©</small>
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/icons/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./assets/icons/favicon-16x16.png"
+        />
+    </head>
+    <body>
+        <!-- SPLASH SCREEN -->
+        <div class="splash__screen">
+            <div class="left"></div>
+            <div class="right">
+                <h1 class="percentage">0%</h1>
             </div>
-            <div class="header">
-                <h1 class="logo"><a href="#" data-page="">Nigel Nkomo</a></h1>
-                <div class="contacts">
-                    <ul>
-                        <li><a href="mailto:nigel.nkomo@icloud.com">nigel.nkomo@icloud.com</a></li>
-                        <li><a href="tel:+263775358610">+263 77 535 8610</a></li>
-                    </ul>   
+            <div class="progress__bar"></div>
+        </div>
+
+        <!-- SCROLL PROGRESS BAR -->
+        <div id="progress"></div>
+
+        <main>
+            <div class="scrollable">
+                <div class="layout--split">
+                    <aside class="sidebar --left">
+                        <div class="stacked-content">
+                            <header class="branding">
+                                <h1 class="branding--content">
+                                    <a href="#hero">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="20"
+                                            height="20"
+                                            fill="#000"
+                                            viewBox="0 0 256 256"
+                                            class="logo"
+                                            href="#"
+                                        >
+                                            <path
+                                                d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM216,72v41.61A184,184,0,0,1,128,136a184.07,184.07,0,0,1-88-22.38V72Zm0,128H40V131.64A200.19,200.19,0,0,0,128,152a200.25,200.25,0,0,0,88-20.37V200ZM104,112a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H112A8,8,0,0,1,104,112Z"
+                                            ></path>
+                                        </svg>
+                                    </a>
+                                    <a href="#hero">Nigel Nkomo</a>
+                                </h1>
+                            </header>
+                            <nav class="navigation">
+                                <ul>
+                                    <li>
+                                        <a href="#projects"
+                                            >What I've Been Working On</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="#about">Who I Am</a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="./docs/NIGEL NKOMO's CV.pdf"
+                                            download
+                                            >Download CV</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/nigelnkomo"
+                                            >GitHub</a
+                                        >
+                                    </li>
+                                </ul>
+                            </nav>
+                            <section class="contact-info">
+                                <ul>
+                                    <li class="pulse-container">
+                                        <div class="pulse"></div>
+                                        <h3 class="contact-info-heading">
+                                            Hire Me
+                                        </h3>
+                                    </li>
+                                    <li>
+                                        <a href="mailto:nigel.nkomo@proton.me"
+                                            >nigel.nkomo@proton.me</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a href="tel:+263775358610"
+                                            >+263 77 535 8610</a
+                                        >
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+
+                        <footer class="site-footer">
+                            <small>
+                                Designed and Developed by Nigel Nkomo
+                                &copy;<span id="currentYear"></span>
+                            </small>
+                        </footer>
+                    </aside>
+                    <section class="content-area --right">
+                        <!-- dynamic content -->
+                        <section id="hero">
+                            <!-- <div class="hero-content">
+                                <h2 class="text__reveal hero-heading">
+                                    Hello.
+                                </h2>
+                                <h2 class="text__reveal hero-heading">
+                                    I'm Nigel Nkomo
+                                </h2>
+                                <p>a creative developer</p>
+                                <a href="#projects" class="btn-cta"
+                                    >View My Work</a
+                                >
+                            </div> -->
+                        </section>
+
+                        <section id="projects">
+                            <div class="projects-hero">
+                                <h2 class="text__reveal">Work</h2>
+                            </div>
+                        </section>
+                        <section id="about">
+                            <h2 class="text__reveal">About</h2>
+                        </section>
+                    </section>
                 </div>
-                <nav class="navigation">
-                    <ul>
-                        <li><a href="#" data-page="./pages/about.html">About</a></li>
-                        <li><a href="#" data-page="./pages/projects.html">Projects</a></li>
-                        <li><a href="./docs/NIGEL NKOMO's CV.pdf" download>Download CV</a></li>
-                        <li><a href="https://github.com/nigelnkomo">GitHub</a></li>
-                    </ul>
-                </nav>
             </div>
-        </div>
-        <div class="landscape-two-thirds">
-            <iframe id="viewer"></iframe>
-        </div>
-    </div>
+        </main>
 
-    <script type="module" src="./scripts/index.js"></script>
-</body>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="0"
+            height="0"
+            style="position: absolute"
+        >
+            <filter id="liquidGlassFilter">
+                <!-- Generate a noise/displacement map -->
+                <feTurbulence
+                    type="turbulence"
+                    baseFrequency="0.04"
+                    numOctaves="2"
+                    result="noise"
+                />
+                <feGaussianBlur in="noise" stdDeviation="3" result="blurred" />
+                <!-- Displace the input graphic (the panel content) -->
+                <feDisplacementMap
+                    in="SourceGraphic"
+                    in2="blurred"
+                    scale="15"
+                    xChannelSelector="R"
+                    yChannelSelector="G"
+                />
+            </filter>
+        </svg>
+
+        <!-- SCRIPTS -->
+        <script type="module" src="./scripts/index.js"></script>
+    </body>
 </html>
