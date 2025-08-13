@@ -1,0 +1,64 @@
+// pages/_home.scss
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+#hero {
+    position: relative;
+    height: 100vh;
+    margin: $spacing-md;
+    margin-bottom: $spacing-lg;
+
+    .hero-content {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+    }
+
+    .hero-heading {
+        font-family: $font-family-primary;
+        font-size: $font-size-headline;
+        font-weight: 100;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+
+        + p {
+            font-family: $font-family-secondary;
+            font-size: $font-size-lg;
+            margin-top: $spacing-sm;
+            color: $color-text-secondary;
+            text-align: center;
+            margin-bottom: $spacing-lg;
+        }
+    }
+
+    .hero-image {
+        position: relative;
+        width: 70%;
+        height: 70%;
+        margin: 0 auto;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -1;
+        }
+    }
+}
+
+#about {
+    min-height: 100vh;
+    margin: $spacing-md;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+}

@@ -18,6 +18,39 @@ const projects = [
     },
 ];
 
+// const createProjectCards = () => {
+//     projects.forEach((project) => {
+//         let projectSection = document.createElement("div");
+//         projectSection.classList.add("project-card");
+
+//         let projectDiv = document.createElement("div");
+//         projectDiv.classList.add("project");
+
+//         let imageContainer = document.createElement("div");
+//         imageContainer.classList.add("project-image-container");
+
+//         let image = document.createElement("img");
+//         image.classList.add("project-img");
+//         image.src = project.image;
+
+//         let projectDetails = document.createElement("div");
+//         projectDetails.classList.add("project-details");
+
+//         let projectTitle = document.createElement("h3");
+//         projectTitle.innerText = project.title;
+
+//         let projectInfo = document.createElement("p");
+//         projectInfo.innerText = project.info;
+
+//         imageContainer.appendChild(image);
+//         projectDetails.append(projectTitle, projectInfo);
+//         projectDiv.append(imageContainer, projectDetails);
+//         projectSection.appendChild(projectDiv);
+
+//         document.getElementById("projects").appendChild(projectSection);
+//     });
+// };
+
 const createProjectCards = () => {
     projects.forEach((project) => {
         let projectSection = document.createElement("div");
@@ -26,6 +59,7 @@ const createProjectCards = () => {
         let projectDiv = document.createElement("div");
         projectDiv.classList.add("project");
 
+        // Image container
         let imageContainer = document.createElement("div");
         imageContainer.classList.add("project-image-container");
 
@@ -33,17 +67,29 @@ const createProjectCards = () => {
         image.classList.add("project-img");
         image.src = project.image;
 
+        // Overlay
+        let overlay = document.createElement("div");
+        overlay.classList.add("project-overlay");
+
+        let overlayTitle = document.createElement("h3");
+        overlayTitle.innerText = project.title;
+
+        let overlayButton = document.createElement("button");
+        overlayButton.innerText = "Open Project";
+
+        overlay.append(overlayTitle, overlayButton);
+
+        imageContainer.append(image, overlay);
+
+        // Project details
         let projectDetails = document.createElement("div");
         projectDetails.classList.add("project-details");
-
-        let projectTitle = document.createElement("h3");
-        projectTitle.innerText = project.title;
 
         let projectInfo = document.createElement("p");
         projectInfo.innerText = project.info;
 
-        imageContainer.appendChild(image);
-        projectDetails.append(projectTitle, projectInfo);
+        projectDetails.appendChild(projectInfo);
+
         projectDiv.append(imageContainer, projectDetails);
         projectSection.appendChild(projectDiv);
 

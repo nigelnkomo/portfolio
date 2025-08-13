@@ -1,0 +1,224 @@
+// layout/_sidebar.scss
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.sidebar.--left {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1rem 1fr;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    // ... rest of the sidebar styles
+    .stacked-content {
+        display: flex;
+        flex-direction: column;
+        grid-column: 2;
+        text-align: right;
+        margin-top: $spacing-md;
+        margin-left: $spacing-lg;
+
+        & > *:not(.contact-info):not(.site-footer) {
+            letter-spacing: 0.05rem;
+            text-transform: capitalize;
+        }
+    }
+
+    .branding {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
+        flex: 0.2;
+
+        &--content {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .logo {
+            margin-right: $spacing-sm;
+        }
+
+        h1 {
+            font-size: $font-size-h1;
+            text-transform: uppercase;
+        }
+    }
+
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        flex: 1;
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        font-family: $font-family-secondary;
+        font-weight: 600;
+        flex: 1;
+        letter-spacing: 0.05rem;
+    }
+
+    .pulse-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .contact-info-heading {
+        font-size: $font-size-h3;
+        font-weight: 600;
+        text-align: right;
+        margin-left: $spacing-md;
+        color: $color-text-primary;
+    }
+
+    // The pulse styles are extracted into a mixin below
+    .pulse {
+        @include pulse-effect;
+    }
+}
+
+// NAVIGATION & CONTACT
+.navigation,
+.contact-info {
+    ul {
+        // layout/_sidebar.scss
+
+        .sidebar.--left {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1rem 1fr;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+
+            .stacked-content {
+                display: flex;
+                flex-direction: column;
+                grid-column: 2;
+                text-align: right;
+                margin-top: $spacing-md;
+                margin-left: $spacing-lg;
+
+                & > *:not(.contact-info):not(.site-footer) {
+                    letter-spacing: 0.05rem;
+                    text-transform: capitalize;
+                }
+            }
+
+            .branding {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: flex-start;
+                flex: 0.2;
+
+                &--content {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                }
+
+                .logo {
+                    margin-right: $spacing-sm;
+                }
+
+                h1 {
+                    font-size: $font-size-h1;
+                    text-transform: uppercase;
+                }
+            }
+
+            .navigation {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: center;
+                flex: 1;
+            }
+
+            .contact-info {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: flex-end;
+                font-family: $font-family-secondary;
+                font-weight: 600;
+                flex: 1;
+                letter-spacing: 0.05rem;
+            }
+
+            .pulse-container {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+            .contact-info-heading {
+                font-size: $font-size-h3;
+                font-weight: 600;
+                text-align: right;
+                margin-left: $spacing-md;
+                color: $color-text-primary;
+            }
+
+            // The pulse styles are extracted into a mixin below
+            .pulse {
+                @include pulse-effect;
+            }
+        }
+
+        // NAVIGATION & CONTACT
+        .navigation,
+        .contact-info {
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            li {
+                margin-bottom: $spacing-sm;
+            }
+        }
+
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: $spacing-sm;
+    }
+}
+
+.site-footer {
+    // ... existing footer styles
+    @media (max-width: 768px) {
+        small {
+            position: static;
+            writing-mode: horizontal-tb;
+            transform: none;
+            margin-top: $spacing-md;
+            display: block;
+            text-align: left;
+        }
+    }
+}

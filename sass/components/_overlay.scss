@@ -1,0 +1,26 @@
+// components/_overlay.scss
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+#progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 1em;
+    width: 100%;
+    background: $color-pulse;
+    transform-origin: left center;
+    transform: scaleX(0);
+    z-index: 9;
+}
+
+.text__reveal {
+    line-height: 1;
+    overflow: hidden;
+
+    span {
+        display: inline-block;
+        transform: translateY(110%);
+        transition: 0.5s;
+    }
+}

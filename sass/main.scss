@@ -1,0 +1,30 @@
+// main.scss
+
+// 1. Abstracts
+@use "abstracts/variables";
+@use "abstracts/mixins";
+
+// 2. Base
+@use "base/base";
+@use "base/fonts";
+@use "base/typography";
+
+// 3. Vendors
+// @use "vendors/normalize";
+
+// 4. Layout
+@use "layout/layout";
+@use "layout/sidebar";
+@use "layout/footer";
+
+// 5. Components
+@use "components/buttons";
+@use "components/loader";
+@use "components/overlay";
+
+// 6. Pages
+@use "pages/home";
+@use "pages/projects";
+
+// 7. Themes
+// @use "themes/default";

@@ -1,0 +1,17 @@
+// layout/_footer.scss
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.site-footer {
+    grid-column: 1;
+    grid-row: 1;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: $spacing-sm;
+    font-family: $font-family-secondary;
+    color: $color-text-primary;
+    opacity: 0.6;
+}

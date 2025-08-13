@@ -1,0 +1,23 @@
+// components/_buttons.scss
+
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.btn-cta {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: $color-pulse;
+    font-family: $font-family-secondary;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &:hover {
+        background-color: $color-cta-hover;
+        text-decoration: none;
+        transform: translateX(-50%) scale(1.05);
+    }
+}

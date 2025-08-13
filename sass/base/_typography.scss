@@ -1,0 +1,18 @@
+// base/_typography.scss
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+h2 {
+    font-size: $font-size-headline;
+    font-weight: 100;
+    font-family: $font-family-primary;
+    line-height: $line-height-heading;
+    width: 100%;
+    text-align: center;
+}
+
+p {
+    font-family: $font-family-secondary;
+    font-size: $font-size-md;
+    line-height: $line-height-lg;
+}

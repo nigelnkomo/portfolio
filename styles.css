@@ -167,22 +167,6 @@ p {
     line-height: var(--line-height-lg);
 }
 
-/* === SCROLLING EFFECT === */
-/* main {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-}
-
-.scrollable {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-} */
-
 /* === LAYOUT === */
 .layout--split {
     display: flex;
@@ -383,6 +367,29 @@ p {
     margin-bottom: var(--spacing-lg);
 }
 
+.hero-image {
+    position: relative;
+    width: 70%;
+    height: 70%;
+    margin: 0 auto;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+
 /* === BTN === */
 .btn-cta {
     display: inline-block;
@@ -412,7 +419,7 @@ p {
     text-align: center;
 }
 
-/* === BLOG === */
+/* === PROJECTS === */
 
 #projects {
     height: 400vh;
@@ -461,12 +468,65 @@ p {
     aspect-ratio: 16 / 9;
 }
 
+/* The image */
 .project-img {
-    position: relative;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
+    display: block;
+    transition: transform 0.5s ease; /* optional for zoom effect */
+}
+
+/* Overlay remains same */
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Keep title at bottom */
+    align-items: center;
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show overlay on hover */
+.project-image-container:hover .project-overlay {
+    opacity: 1;
+}
+
+/* Project name at bottom */
+.project-overlay h3 {
+    color: #fff;
+    margin: 0 0 0.5rem 0;
+    text-align: center;
+}
+
+/* Button in top-right corner */
+.project-overlay button {
+    position: absolute;
+    top: 0.5rem; /* adjust distance from top */
+    right: 0.5rem; /* adjust distance from right */
+    width: 5rem; /* make it square */
+    height: 5rem; /* make it square */
+    border: none;
+    background-color: #ff6b6b;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.project-overlay button:hover {
+    background-color: #ff3b3b;
 }
 
 .project-details {

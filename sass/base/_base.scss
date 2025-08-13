@@ -1,0 +1,73 @@
+// base/_base.scss
+@use "sass:math";
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $color-text-primary;
+    font-family: $font-family-primary;
+}
+
+body::before {
+    content: "";
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    background:
+        // Wrap the division in calc() to be explicit
+        linear-gradient(90deg, $line 1px, transparent 1px $size)
+            calc($size * 0.36) 50% / calc($size / 1) calc($size / 1),
+        linear-gradient($line 1px, transparent 1px $size) 0% calc($size * 0.32) /
+            calc($size / 1) calc($size / 1);
+    mask: linear-gradient(-20deg, transparent 50%, white);
+    top: 0;
+    transform-style: flat;
+    pointer-events: none;
+    z-index: -1;
+
+    // Scrollbar styles
+    scrollbar-width: thin;
+    scrollbar-color: $color-pulse transparent;
+
+    &::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $color-pulse;
+        border-radius: 999px;
+        border: 2px solid transparent;
+        background-clip: content-box;
+    }
+}
+
+::selection {
+    background-color: $color-pulse;
+    color: $color-text-primary;
+}
+
+// Links
+a {
+    &:link,
+    &:visited {
+        color: $color-bg-secondary;
+        text-decoration: none;
+    }
+
+    &:hover {
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+    }
+}
