@@ -130,17 +130,130 @@ p {
   display: grid;
   grid-template-columns: 1rem 1fr;
   height: 100vh;
+  width: 100vw;
   position: sticky;
   top: 0;
 }
+.sidebar.--left .navigation__checkbox {
+  display: none;
+}
+.sidebar.--left .navigation__button,
+.sidebar.--left .navigation__background {
+  display: none;
+}
 @media (max-width: 768px) {
   .sidebar.--left {
-    width: 100%;
-    height: auto;
-    position: static;
-    border-right: none;
-    border-bottom: 1px solid #ccc;
     align-items: flex-start;
+    position: static;
+    /* Icon */
+  }
+  .sidebar.--left .navigation__button,
+  .sidebar.--left .navigation__background {
+    display: block;
+  }
+  .sidebar.--left .navigation__checkbox:checked ~ .navigation__background {
+    transform: scale(80);
+  }
+  .sidebar.--left .navigation__button {
+    background-color: greenyellow;
+    height: 3rem;
+    width: 3rem;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    border-radius: 50%;
+    z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.25);
+    text-align: center;
+    cursor: pointer;
+  }
+  .sidebar.--left .navigation__background {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background-image: radial-gradient(rgb(56, 73, 89), rgb(56, 73, 89));
+    z-index: 1000;
+    transition: transform 0.8s cubic-bezier(0.86, 1, 0.22, 1);
+    /* transform: scale(80); */
+  }
+  .sidebar.--left .navigation__icon {
+    position: relative;
+    margin-top: 1.5rem;
+  }
+  .sidebar.--left .navigation__icon::before,
+  .sidebar.--left .navigation__icon::after,
+  .sidebar.--left .navigation__icon {
+    width: 2rem;
+    height: 2px;
+    background-color: rgb(56, 73, 89);
+    display: inline-block;
+  }
+  .sidebar.--left .navigation__icon::before,
+  .sidebar.--left .navigation__icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all 0.4s;
+  }
+  .sidebar.--left .navigation__icon::before {
+    top: -0.3rem;
+  }
+  .sidebar.--left .navigation__icon::after {
+    top: 0.3rem;
+  }
+  .sidebar.--left .navigation__button:hover .navigation__icon::before {
+    top: -0.4rem;
+  }
+  .sidebar.--left .navigation__button:hover .navigation__icon::after {
+    top: 0.4rem;
+  }
+  .sidebar.--left .navigation__checkbox:checked + .navigation__button .navigation__icon {
+    background-color: transparent;
+  }
+  .sidebar.--left .navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+    transform: rotate(135deg);
+    top: 0;
+  }
+  .sidebar.--left .navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+    transform: rotate(-135deg);
+    top: 0;
+  }
+  .sidebar.--left .stacked-content {
+    position: fixed;
+    top: 10%;
+    left: 0;
+    z-index: 1500;
+    height: 80%;
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.86, 1, 0.22, 1);
+  }
+  .sidebar.--left .stacked-content .branding,
+  .sidebar.--left .stacked-content .branding-content,
+  .sidebar.--left .stacked-content .contact-info ul,
+  .sidebar.--left .stacked-content .contact-info-heading,
+  .sidebar.--left .stacked-content .navigation ul {
+    width: 100%;
+    text-align: left;
+  }
+  .sidebar.--left .stacked-content .contact-info ul li,
+  .sidebar.--left .stacked-content .navigation ul li {
+    margin-bottom: 1rem;
+  }
+  .sidebar.--left .stacked-content a,
+  .sidebar.--left .stacked-content h3,
+  .sidebar.--left .stacked-content .branding-logo {
+    color: #ffffff;
+    fill: #ffffff;
+  }
+  .sidebar.--left .stacked-content .branding {
+    align-items: flex-start;
+  }
+  .sidebar.--left .navigation__checkbox:checked ~ .stacked-content {
+    opacity: 1;
+    width: 100%;
     text-align: left;
   }
 }

@@ -3,25 +3,261 @@
 @use "../abstracts/mixins" as *;
 
 .sidebar.--left {
-    flex: 1;
-    display: grid;
-    grid-template-columns: 1rem 1fr;
-    height: 100vh;
-    position: sticky;
-    top: 0;
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  height: 100vh;
+  width: 100vw;
+  position: sticky;
+  top: 0;
 
-    @media (max-width: 768px) {
-        width: 100%;
-        height: auto;
-        position: static;
-        border-right: none;
-        border-bottom: 1px solid #ccc;
-        align-items: flex-start;
-        text-align: left;
+  .navigation__checkbox {
+    display: none;
+  }
+
+  .navigation__button,
+  .navigation__background {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    align-items: flex-start;
+    position: static;
+
+    .navigation__button,
+    .navigation__background {
+      display: block;
     }
 
-    // ... rest of the sidebar styles
+    .navigation__checkbox:checked ~ .navigation__background {
+      transform: scale(80);
+    }
+
+    .navigation__button {
+      background-color: $color-cta-hover;
+      height: 3rem;
+      width: 3rem;
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      border-radius: 50%;
+      z-index: 2000;
+
+      box-shadow: 0 1rem 3rem $color-shadow;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .navigation__background {
+      height: 3rem;
+      width: 3rem;
+      border-radius: 50%;
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background-image: radial-gradient(
+        $color-text-primary,
+        $color-bg-secondary
+      );
+      z-index: 1000;
+      transition: transform 0.8s cubic-bezier(0.86, 1, 0.22, 1);
+
+      /* transform: scale(80); */
+    }
+
+    /* Icon */
+    .navigation__icon {
+      position: relative;
+      margin-top: 1.5rem;
+    }
+
+    .navigation__icon::before,
+    .navigation__icon::after,
+    .navigation__icon {
+      width: 2rem;
+      height: 2px;
+      background-color: $color-bg-secondary;
+      display: inline-block;
+    }
+
+    .navigation__icon::before,
+    .navigation__icon::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.4s;
+    }
+
+    .navigation__icon::before {
+      top: -0.3rem;
+    }
+
+    .navigation__icon::after {
+      top: 0.3rem;
+    }
+
+    .navigation__button:hover .navigation__icon::before {
+      top: -0.4rem;
+    }
+
+    .navigation__button:hover .navigation__icon::after {
+      top: 0.4rem;
+    }
+
+    .navigation__checkbox:checked + .navigation__button .navigation__icon {
+      background-color: transparent;
+    }
+
+    .navigation__checkbox:checked
+      + .navigation__button
+      .navigation__icon::before {
+      transform: rotate(135deg);
+      top: 0;
+    }
+
+    .navigation__checkbox:checked
+      + .navigation__button
+      .navigation__icon::after {
+      transform: rotate(-135deg);
+      top: 0;
+    }
+
     .stacked-content {
+      position: fixed;
+      top: 10%;
+      left: 0;
+      z-index: 1500;
+      height: 80%;
+
+      opacity: 0;
+
+      transition: opacity 0.8s cubic-bezier(0.86, 1, 0.22, 1);
+
+      .branding,
+      .branding-content,
+      .contact-info ul,
+      .contact-info-heading,
+      .navigation ul {
+        width: 100%;
+        text-align: left;
+      }
+
+      .contact-info ul li,
+      .navigation ul li {
+        margin-bottom: $spacing-md;
+      }
+
+      a,
+      h3,
+      .branding-logo {
+        color: $color-text-inverse;
+        fill: $color-text-inverse;
+      }
+
+      .branding {
+        align-items: flex-start;
+      }
+    }
+
+    .navigation__checkbox:checked ~ .stacked-content {
+      opacity: 1;
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  // rest of the sidebar styles
+  .stacked-content {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2;
+    text-align: right;
+    margin-top: $spacing-md;
+    margin-left: $spacing-lg;
+
+    & > *:not(.contact-info):not(.site-footer) {
+      letter-spacing: 0.05rem;
+      text-transform: capitalize;
+    }
+  }
+
+  .branding {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    flex: 0.2;
+
+    &--content {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .logo {
+      margin-right: $spacing-sm;
+    }
+
+    h1 {
+      font-size: $font-size-h1;
+      text-transform: uppercase;
+    }
+  }
+
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-family: $font-family-secondary;
+    font-weight: 600;
+    flex: 1;
+    letter-spacing: 0.05rem;
+  }
+
+  .pulse-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .contact-info-heading {
+    font-size: $font-size-h3;
+    font-weight: 600;
+    text-align: right;
+    margin-left: $spacing-md;
+    color: $color-text-primary;
+  }
+
+  // The pulse styles are extracted into a mixin below
+  .pulse {
+    @include pulse-effect;
+  }
+}
+
+// NAVIGATION & CONTACT
+.navigation,
+.contact-info {
+  ul {
+    // layout/_sidebar.scss
+
+    .sidebar.--left {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1rem 1fr;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+
+      .stacked-content {
         display: flex;
         flex-direction: column;
         grid-column: 2;
@@ -30,12 +266,12 @@
         margin-left: $spacing-lg;
 
         & > *:not(.contact-info):not(.site-footer) {
-            letter-spacing: 0.05rem;
-            text-transform: capitalize;
+          letter-spacing: 0.05rem;
+          text-transform: capitalize;
         }
-    }
+      }
 
-    .branding {
+      .branding {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -43,30 +279,30 @@
         flex: 0.2;
 
         &--content {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
         }
 
         .logo {
-            margin-right: $spacing-sm;
+          margin-right: $spacing-sm;
         }
 
         h1 {
-            font-size: $font-size-h1;
-            text-transform: uppercase;
+          font-size: $font-size-h1;
+          text-transform: uppercase;
         }
-    }
+      }
 
-    .navigation {
+      .navigation {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         justify-content: center;
         flex: 1;
-    }
+      }
 
-    .contact-info {
+      .contact-info {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -75,150 +311,60 @@
         font-weight: 600;
         flex: 1;
         letter-spacing: 0.05rem;
-    }
+      }
 
-    .pulse-container {
+      .pulse-container {
         display: flex;
         align-items: center;
         justify-content: flex-end;
-    }
+      }
 
-    .contact-info-heading {
+      .contact-info-heading {
         font-size: $font-size-h3;
         font-weight: 600;
         text-align: right;
         margin-left: $spacing-md;
         color: $color-text-primary;
-    }
+      }
 
-    // The pulse styles are extracted into a mixin below
-    .pulse {
+      // The pulse styles are extracted into a mixin below
+      .pulse {
         @include pulse-effect;
+      }
     }
-}
 
-// NAVIGATION & CONTACT
-.navigation,
-.contact-info {
-    ul {
-        // layout/_sidebar.scss
-
-        .sidebar.--left {
-            flex: 1;
-            display: grid;
-            grid-template-columns: 1rem 1fr;
-            height: 100vh;
-            position: sticky;
-            top: 0;
-
-            .stacked-content {
-                display: flex;
-                flex-direction: column;
-                grid-column: 2;
-                text-align: right;
-                margin-top: $spacing-md;
-                margin-left: $spacing-lg;
-
-                & > *:not(.contact-info):not(.site-footer) {
-                    letter-spacing: 0.05rem;
-                    text-transform: capitalize;
-                }
-            }
-
-            .branding {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end;
-                justify-content: flex-start;
-                flex: 0.2;
-
-                &--content {
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-end;
-                }
-
-                .logo {
-                    margin-right: $spacing-sm;
-                }
-
-                h1 {
-                    font-size: $font-size-h1;
-                    text-transform: uppercase;
-                }
-            }
-
-            .navigation {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end;
-                justify-content: center;
-                flex: 1;
-            }
-
-            .contact-info {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end;
-                justify-content: flex-end;
-                font-family: $font-family-secondary;
-                font-weight: 600;
-                flex: 1;
-                letter-spacing: 0.05rem;
-            }
-
-            .pulse-container {
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-            }
-
-            .contact-info-heading {
-                font-size: $font-size-h3;
-                font-weight: 600;
-                text-align: right;
-                margin-left: $spacing-md;
-                color: $color-text-primary;
-            }
-
-            // The pulse styles are extracted into a mixin below
-            .pulse {
-                @include pulse-effect;
-            }
-        }
-
-        // NAVIGATION & CONTACT
-        .navigation,
-        .contact-info {
-            ul {
-                list-style: none;
-                padding: 0;
-            }
-
-            li {
-                margin-bottom: $spacing-sm;
-            }
-        }
-
+    // NAVIGATION & CONTACT
+    .navigation,
+    .contact-info {
+      ul {
         list-style: none;
         padding: 0;
+      }
+
+      li {
+        margin-bottom: $spacing-sm;
+      }
     }
 
-    li {
-        margin-bottom: $spacing-sm;
-    }
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: $spacing-sm;
+  }
 }
 
 .site-footer {
-    // ... existing footer styles
-    @media (max-width: 768px) {
-        small {
-            position: static;
-            writing-mode: horizontal-tb;
-            transform: none;
-            margin-top: $spacing-md;
-            display: block;
-            text-align: left;
-        }
+  // ... existing footer styles
+  @media (max-width: 768px) {
+    small {
+      position: static;
+      writing-mode: horizontal-tb;
+      transform: none;
+      margin-top: $spacing-md;
+      display: block;
+      text-align: left;
     }
+  }
 }
