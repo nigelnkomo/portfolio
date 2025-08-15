@@ -179,3 +179,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Close navigation menu on link click
+document.addEventListener("DOMContentLoaded", () => {
+  const navCheckbox = document.querySelector(".navigation__checkbox");
+  const navLinks = document.querySelectorAll(".navigation a");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navCheckbox.checked = false; // close the menu
+    });
+  });
+});
