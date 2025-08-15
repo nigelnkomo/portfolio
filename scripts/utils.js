@@ -1,15 +1,15 @@
 const projects = [
   {
     title: "Project One",
-    image: "/assets/imgs/1.jpg",
+    image: "assets/imgs/1.jpg",
   },
   {
     title: "Project Two",
-    image: "/assets/imgs/2.jpg",
+    image: "assets/imgs/2.jpg",
   },
   {
     title: "Project Three",
-    image: "/assets/imgs/3.jpg",
+    image: "assets/imgs/3.jpg",
   },
 ];
 
