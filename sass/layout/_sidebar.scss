@@ -359,10 +359,12 @@
   // ... existing footer styles
   @media (max-width: 768px) {
     small {
-      position: static;
-      writing-mode: horizontal-tb;
+      position: absolute;
+      top: 0;
+      left: 0;
+      // writing-mode: horizontal-tb;
       transform: none;
-      margin-top: $spacing-md;
+      // margin-top: $spacing-md;
       display: block;
       text-align: left;
     }
