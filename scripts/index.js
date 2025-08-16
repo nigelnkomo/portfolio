@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Close navigation menu on link click
 document.addEventListener("DOMContentLoaded", () => {
   const navCheckbox = document.querySelector(".navigation__checkbox");
-  const navLinks = document.querySelectorAll(".navigation a");
+  const navLinks = document.querySelectorAll(".stacked-content a");
 
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
