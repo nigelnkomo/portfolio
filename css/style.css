@@ -588,18 +588,15 @@ p {
   margin-bottom: 2rem;
 }
 #hero .hero-content {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
 }
 #hero .hero-heading {
   font-family: "Delight Medium", sans-serif;
-  font-size: 6rem;
-  font-weight: 100;
+  font-size: 1.5rem;
+  font-weight: 400;
   letter-spacing: 1px;
   text-transform: uppercase;
+  text-align: center;
 }
 #hero .hero-heading + p {
   font-family: "Ronzino Regular", sans-serif;
@@ -625,9 +622,21 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   z-index: -1;
+}
+@media (max-width: 768px) {
+  #hero .hero-image {
+    width: 100%;
+    height: 50vh;
+  }
+  #hero .hero-image__img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 #about {
